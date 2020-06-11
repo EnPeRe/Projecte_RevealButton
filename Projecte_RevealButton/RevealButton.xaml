@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Projecte_RevealButton.RevealButton">
+    <ContentView.Content>
+        <RelativeLayout
+            Margin="5">
+            <Frame
+                x:Name="InteriorFrame"
+                CornerRadius="10"
+                Margin="2"
+                Padding="0"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Width,Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Height,Factor=1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid
+                        Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="3*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="#2E249E"
+                            BorderColor="DarkBlue"
+                            RelativeLayout.WidthConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Width,Factor=1}"
+                            RelativeLayout.HeightConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Height,Factor=1}">
+                            <Label 
+                                Text="Base Set"
+                                TextColor="GhostWhite"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="Center"/>
+                        </Frame>
+                        <StackLayout
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            BackgroundColor="Transparent">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                            <Label 
+                                Text="&lt; Mags"
+                                TextColor="GhostWhite"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Grid>
+                    <CollectionView
+                        Grid.Row="1">
+                    </CollectionView>
+                </Grid>
+            </Frame>
+
+            <Frame
+                x:Name="ExteriorFrame"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Width,Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Height,Factor=1}"
+                CornerRadius="10"
+                BorderColor="#333EBD"
+                Padding="0"
+                BackgroundColor="#333EBD">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Frame.GestureRecognizers>
+                <Grid>
+                    <Label 
+                        Margin="10"
+                        Text="+"
+                        TextColor="GhostWhite"
+                        FontSize="20"
+                        HorizontalOptions="End"/>
+                    <Label 
+                        Text="Mags"
+                        TextColor="GhostWhite"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                </Grid>
+            </Frame>
+            </RelativeLayout>
+    </ContentView.Content>
+</ContentView>
