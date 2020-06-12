@@ -68,7 +68,27 @@
                         </StackLayout>
                     </Grid>
                     <CollectionView
+                        x:Name="BottomCollection"
                         Grid.Row="1">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="2"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    BackgroundColor="#2E249E"
+                                    BorderColor="DarkBlue"
+                                    HorizontalOptions="FillAndExpand">
+                                    <Label 
+                                        Text="{Binding Title}"
+                                        TextColor="GhostWhite"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="Center"/>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
                     </CollectionView>
                 </Grid>
             </Frame>

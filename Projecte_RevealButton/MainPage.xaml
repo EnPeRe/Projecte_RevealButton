@@ -20,7 +20,12 @@
             </FlexLayout>
             <FlexLayout
                 FlexLayout.Basis="40%">
-                <projecte_revealbutton:RevealButton/>
+                <projecte_revealbutton:RevealButton>
+                    <projecte_revealbutton:RevealButton.BottomViews>
+                        <projecte_revealbutton:BottomItem Title="Dracs"/>
+                        <projecte_revealbutton:BottomItem Title="Servidors"/>
+                    </projecte_revealbutton:RevealButton.BottomViews>
+                </projecte_revealbutton:RevealButton>
             </FlexLayout>
 
             <FlexLayout
