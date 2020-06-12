@@ -16,17 +16,51 @@
                 FlexLayout.Basis="10%"/>
             <FlexLayout
                 FlexLayout.Basis="40%">
-                <projecte_revealbutton:RevealButton/>
-            </FlexLayout>
-            <FlexLayout
-                FlexLayout.Basis="40%">
                 <projecte_revealbutton:RevealButton>
                     <projecte_revealbutton:RevealButton.BottomViews>
-                        <projecte_revealbutton:BottomItem Title="Dracs"/>
-                        <projecte_revealbutton:BottomItem Title="Servidors"/>
+                        <projecte_revealbutton:BottomItem>
+                            <Frame
+                                BackgroundColor="#2E249E"
+                                BorderColor="DarkBlue"
+                                HorizontalOptions="FillAndExpand">
+                                <Label 
+                                    Text="Dracs"
+                                    TextColor="GhostWhite"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Center"/>
+                            </Frame>
+                        </projecte_revealbutton:BottomItem>
+                        <projecte_revealbutton:BottomItem>
+                            <Button Text="Servidors" BackgroundColor="#2E249E" Margin="0" TextColor="GhostWhite"/>
+                        </projecte_revealbutton:BottomItem>
                     </projecte_revealbutton:RevealButton.BottomViews>
                 </projecte_revealbutton:RevealButton>
             </FlexLayout>
+            <Grid
+                FlexLayout.Basis="40%"
+                RowSpacing="2"
+                ColumnSpacing="2"
+                Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <projecte_revealbutton:RevealButton 
+                    Grid.Row="0" Grid.Column="0"/>
+                <projecte_revealbutton:RevealButton 
+                    Grid.Row="0" Grid.Column="1"/>
+                <projecte_revealbutton:RevealButton 
+                    Grid.Row="1" Grid.Column="0"/>
+                <projecte_revealbutton:RevealButton 
+                    Grid.Row="1" Grid.Column="1"/>
+            </Grid>
 
             <FlexLayout
                 FlexLayout.Basis="10%">
@@ -36,14 +70,6 @@
                     FlexLayout.Basis="20%"/>
             </FlexLayout>
         </FlexLayout>
-
-        <!--<FlexLayout
-            BackgroundColor="Yellow">
-            <projecte_revealbutton:RevealButton
-                FlexLayout.Basis="50%"/>
-            <projecte_revealbutton:RevealButton
-                FlexLayout.Basis="50%"/>
-        </FlexLayout>-->
     </StackLayout>
 
 </ContentPage>

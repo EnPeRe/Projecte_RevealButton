@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -32,53 +31,25 @@ namespace Projecte_RevealButton
             foreach (BottomItem v in e.NewItems)
             {
                 BottomCollection.ColumnDefinitions.Add(new ColumnDefinition());
-                BottomCollection.Children.Add(new Frame()
-                {
-                    BackgroundColor = Color.FromHex("#2e249E"),
-                    BorderColor = Color.DarkBlue,
-                    Content = new Label()
-                    {
-                        Text = v.Title,
-                        TextColor = Color.GhostWhite,
-                        HorizontalTextAlignment = TextAlignment.Center,
-                        VerticalTextAlignment = TextAlignment.Center,
-                        VerticalOptions = LayoutOptions.CenterAndExpand,
-                        HorizontalOptions = LayoutOptions.Center,
-                    }
-                }, BottomCollection.ColumnDefinitions.Count() - 1, 0);
+                BottomCollection.Children.Add(v, BottomCollection.ColumnDefinitions.Count() - 1, 0);
             }
         }
 
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void ExteriorFrame_Tapped(object sender, EventArgs e)
         {
             await ExteriorFrame.FadeTo(0);
             ExteriorFrame.IsVisible = false;
         }
 
-        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        private async void BackTitleStack_Tapped(object sender, EventArgs e)
         {
             ExteriorFrame.IsVisible = true;
             await ExteriorFrame.FadeTo(1);
         }
     }
 
-    public class BottomItem : INotifyPropertyChanged
+    public class BottomItem : ContentView
     {
-        private string title { get; set; }
-        public string Title
-        {
-            get => title;
-            set
-            {
-                title = value; OnPropertyChanged(nameof(Title));
-            }
-        }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

@@ -6,8 +6,7 @@
              mc:Ignorable="d"
              x:Class="Projecte_RevealButton.RevealButton">
     <ContentView.Content>
-        <RelativeLayout
-            Margin="5">
+        <RelativeLayout>
             <Frame
                 x:Name="InteriorFrame"
                 CornerRadius="10"
@@ -58,7 +57,7 @@
                             Grid.Row="0"
                             BackgroundColor="Transparent">
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                                <TapGestureRecognizer Tapped="BackTitleStack_Tapped"></TapGestureRecognizer>
                             </StackLayout.GestureRecognizers>
                             <Label 
                                 Text="&lt; Mags"
@@ -89,7 +88,7 @@
                 Padding="0"
                 BackgroundColor="#333EBD">
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    <TapGestureRecognizer Tapped="ExteriorFrame_Tapped"/>
                     </Frame.GestureRecognizers>
                 <Grid>
                     <Label 
