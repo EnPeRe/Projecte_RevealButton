@@ -53,9 +53,24 @@
                 </Grid.ColumnDefinitions>
 
                 <projecte_revealbutton:RevealButton 
-                    Grid.Row="0" Grid.Column="0"/>
+                    Grid.Row="0" Grid.Column="0">
+                    <projecte_revealbutton:RevealButton.BottomViews>
+                        <projecte_revealbutton:BottomItem>
+                            <Button Text="Dracs" BackgroundColor="#2E249E" Margin="0" TextColor="GhostWhite"/>
+                        </projecte_revealbutton:BottomItem>
+                        <projecte_revealbutton:BottomItem>
+                            <Button Text="Serevidors" BackgroundColor="#2E249E" Margin="0" TextColor="GhostWhite"/>
+                        </projecte_revealbutton:BottomItem>
+                    </projecte_revealbutton:RevealButton.BottomViews>
+                </projecte_revealbutton:RevealButton>
                 <projecte_revealbutton:RevealButton 
-                    Grid.Row="0" Grid.Column="1"/>
+                    Grid.Row="0" Grid.Column="1">
+                    <projecte_revealbutton:RevealButton.BottomViews>
+                        <projecte_revealbutton:BottomItem>
+                            <Button Text="Contra La Sombra" BackgroundColor="#2E249E" Margin="0" TextColor="GhostWhite"/>
+                        </projecte_revealbutton:BottomItem>
+                    </projecte_revealbutton:RevealButton.BottomViews>
+                </projecte_revealbutton:RevealButton>
                 <projecte_revealbutton:RevealButton 
                     Grid.Row="1" Grid.Column="0"/>
                 <projecte_revealbutton:RevealButton 

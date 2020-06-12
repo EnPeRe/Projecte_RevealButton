@@ -7,76 +7,74 @@
              x:Class="Projecte_RevealButton.RevealButton">
     <ContentView.Content>
         <RelativeLayout>
-            <Frame
-                x:Name="InteriorFrame"
+            <Frame 
+                x:Name="InteriorBorderFrame"
                 CornerRadius="10"
-                Margin="2"
-                Padding="0"
+                Padding="10"
+                BackgroundColor="#333EBD"
                 RelativeLayout.WidthConstraint="{ConstraintExpression
                 Type=RelativeToParent,Property=Width,Factor=1}"
                 RelativeLayout.HeightConstraint="{ConstraintExpression
                 Type=RelativeToParent,Property=Height,Factor=1}">
-                <Grid
-                    RowSpacing="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    
+
+                <Frame
+                    x:Name="InteriorFrame"
+                    CornerRadius="8"
+                    Margin="0"
+                    Padding="0"
+                    HasShadow="False">
                     <Grid
-                        Grid.Row="0">
+                        BackgroundColor="#333EBD"
+                        RowSpacing="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <Frame
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Grid.RowSpan="2"
-                            Grid.ColumnSpan="2"
-                            BackgroundColor="#2E249E"
-                            BorderColor="DarkBlue"
-                            RelativeLayout.WidthConstraint="{ConstraintExpression
-                                Type=RelativeToParent,Property=Width,Factor=1}"
-                            RelativeLayout.HeightConstraint="{ConstraintExpression
-                                Type=RelativeToParent,Property=Height,Factor=1}">
-                            <Label 
+
+                        <Grid
+                            Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button
+                                Grid.RowSpan="2"
+                                Grid.ColumnSpan="2"
                                 Text="Base Set"
                                 TextColor="GhostWhite"
-                                HorizontalTextAlignment="Center"
-                                VerticalTextAlignment="Center"
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalOptions="Center"/>
-                        </Frame>
-                        <StackLayout
-                            Grid.Column="0"
-                            Grid.Row="0"
-                            BackgroundColor="Transparent">
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="BackTitleStack_Tapped"></TapGestureRecognizer>
-                            </StackLayout.GestureRecognizers>
-                            <Label 
-                                Text="&lt; Mags"
-                                TextColor="GhostWhite"
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalOptions="CenterAndExpand"
-                                HorizontalTextAlignment="Center"
-                                VerticalTextAlignment="Center"/>
-                        </StackLayout>
+                                BackgroundColor="#2E249E"
+                                BorderColor="DarkBlue"
+                                Padding="0"/>
+                            <StackLayout
+                                Margin="5,2,0,0"
+                                BackgroundColor="Transparent">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="BackTitleStack_Tapped"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                                <Label
+                                    Text="&#x25c1; Mags"
+                                    FontSize="10"
+                                    TextColor="GhostWhite"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center">
+                                </Label>
+                            </StackLayout>
+                        </Grid>
+                        <Grid
+                            x:Name="BottomCollection"
+                            Grid.Row="1"
+                            ColumnSpacing="2">
+                        </Grid>
                     </Grid>
-                    
-                    <Grid
-                        x:Name="BottomCollection"
-                        Grid.Row="1"
-                        ColumnSpacing="2">
-                    </Grid>
-                </Grid>
+                </Frame>
+                
             </Frame>
-
+            
             <Frame
                 x:Name="ExteriorFrame"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
@@ -92,7 +90,7 @@
                     </Frame.GestureRecognizers>
                 <Grid>
                     <Label 
-                        Margin="10"
+                        Margin="0,5,15,0"
                         Text="+"
                         TextColor="GhostWhite"
                         FontSize="20"
@@ -105,6 +103,7 @@
                         VerticalOptions="Center"/>
                 </Grid>
             </Frame>
+            
             </RelativeLayout>
     </ContentView.Content>
 </ContentView>
