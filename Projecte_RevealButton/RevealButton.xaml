@@ -17,11 +17,13 @@
                 Type=RelativeToParent,Property=Width,Factor=1}"
                 RelativeLayout.HeightConstraint="{ConstraintExpression
                 Type=RelativeToParent,Property=Height,Factor=1}">
-                <Grid>
+                <Grid
+                    RowSpacing="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
+                    
                     <Grid
                         Grid.Row="0">
                         <Grid.RowDefinitions>
@@ -67,29 +69,12 @@
                                 VerticalTextAlignment="Center"/>
                         </StackLayout>
                     </Grid>
-                    <CollectionView
+                    
+                    <Grid
                         x:Name="BottomCollection"
-                        Grid.Row="1">
-                        <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Vertical" Span="2"/>
-                        </CollectionView.ItemsLayout>
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Frame
-                                    BackgroundColor="#2E249E"
-                                    BorderColor="DarkBlue"
-                                    HorizontalOptions="FillAndExpand">
-                                    <Label 
-                                        Text="{Binding Title}"
-                                        TextColor="GhostWhite"
-                                        HorizontalTextAlignment="Center"
-                                        VerticalTextAlignment="Center"
-                                        VerticalOptions="CenterAndExpand"
-                                        HorizontalOptions="Center"/>
-                                </Frame>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                        Grid.Row="1"
+                        ColumnSpacing="2">
+                    </Grid>
                 </Grid>
             </Frame>
 

@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,24 +17,36 @@ namespace Projecte_RevealButton
         }
 
         public static readonly BindableProperty BottomViewsProperty =
-            BindableProperty.Create(nameof(BottomViews), typeof(ObservableCollection<BottomItem>), typeof(RevealButton),
-                propertyChanged: OnBottomsViewsPropertyChanged);
+            BindableProperty.Create(nameof(BottomViews), typeof(ObservableCollection<BottomItem>), typeof(RevealButton));
 
-        private static void OnBottomsViewsPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var control = (RevealButton)bindable;
-            if (newValue is ObservableCollection<BottomItem> bottomCollection)
-            {
-                control.BottomCollection.ItemsSource = bottomCollection;
-                if(bottomCollection.Any())
-                    control.BottomCollection.ItemsLayout = new GridItemsLayout(bottomCollection.Count(), ItemsLayoutOrientation.Horizontal);
-            }
-        }
 
         public RevealButton()
         {
             InitializeComponent();
             BottomViews = new ObservableCollection<BottomItem>();
+            BottomViews.CollectionChanged += BottomViews_CollectionChanged;
+        }
+
+        private void BottomViews_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            foreach (BottomItem v in e.NewItems)
+            {
+                BottomCollection.ColumnDefinitions.Add(new ColumnDefinition());
+                BottomCollection.Children.Add(new Frame()
+                {
+                    BackgroundColor = Color.FromHex("#2e249E"),
+                    BorderColor = Color.DarkBlue,
+                    Content = new Label()
+                    {
+                        Text = v.Title,
+                        TextColor = Color.GhostWhite,
+                        HorizontalTextAlignment = TextAlignment.Center,
+                        VerticalTextAlignment = TextAlignment.Center,
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        HorizontalOptions = LayoutOptions.Center,
+                    }
+                }, BottomCollection.ColumnDefinitions.Count() - 1, 0);
+            }
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
