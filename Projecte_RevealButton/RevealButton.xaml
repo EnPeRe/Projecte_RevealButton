@@ -2,16 +2,14 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:projecte_innershadowframe="clr-namespace:Projecte_RevealButton.Projecte_InnerShadowLayout"
              mc:Ignorable="d"
              x:Class="Projecte_RevealButton.RevealButton">
     <ContentView.Content>
         <RelativeLayout>
             <Frame 
                 x:Name="InteriorBorderFrame"
-                CornerRadius="10"
-                Padding="10"
-                BackgroundColor="#333EBD"
                 RelativeLayout.WidthConstraint="{ConstraintExpression
                 Type=RelativeToParent,Property=Width,Factor=1}"
                 RelativeLayout.HeightConstraint="{ConstraintExpression
@@ -19,12 +17,11 @@
 
                 <Frame
                     x:Name="InteriorFrame"
-                    CornerRadius="8"
                     Margin="0"
                     Padding="0"
                     HasShadow="False">
                     <Grid
-                        BackgroundColor="#333EBD"
+                        x:Name="InteriorGrid"
                         RowSpacing="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -39,31 +36,32 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-
-                            <Button
+                            <Frame
                                 Grid.RowSpan="2"
                                 Grid.ColumnSpan="2"
-                                Text="Base Set"
-                                TextColor="GhostWhite"
-                                BackgroundColor="#2E249E"
-                                BorderColor="DarkBlue"
-                                Padding="0"/>
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                CornerRadius="5"
+                                HasShadow="False">
+                                <projecte_innershadowframe:ShadowButton
+                                    x:Name="InteriorTopButton"/>
+                            </Frame>
+
                             <StackLayout
-                                Margin="5,2,0,0"
+                                x:Name="BackLayout"
                                 BackgroundColor="Transparent">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="BackTitleStack_Tapped"></TapGestureRecognizer>
                                 </StackLayout.GestureRecognizers>
                                 <Label
-                                    Text="&#x25c1; Mags"
-                                    FontSize="10"
-                                    TextColor="GhostWhite"
+                                    x:Name="BackLabel"
                                     VerticalOptions="CenterAndExpand"
                                     HorizontalOptions="CenterAndExpand"
                                     HorizontalTextAlignment="Center"
                                     VerticalTextAlignment="Center">
                                 </Label>
                             </StackLayout>
+
                         </Grid>
                         <Grid
                             x:Name="BottomCollection"
@@ -72,38 +70,32 @@
                         </Grid>
                     </Grid>
                 </Frame>
-                
             </Frame>
-            
+
             <Frame
                 x:Name="ExteriorFrame"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                 Property=Width,Factor=1}"
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
                 Property=Height,Factor=1}"
-                CornerRadius="10"
-                BorderColor="#333EBD"
-                Padding="0"
-                BackgroundColor="#333EBD">
-                    <Frame.GestureRecognizers>
+                Padding="0">
+                <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ExteriorFrame_Tapped"/>
-                    </Frame.GestureRecognizers>
+                </Frame.GestureRecognizers>
                 <Grid>
                     <Label 
-                        Margin="0,5,15,0"
+                        x:Name="PlusSignus"
                         Text="+"
-                        TextColor="GhostWhite"
-                        FontSize="20"
+                        IsVisible="False"
                         HorizontalOptions="End"/>
                     <Label 
-                        Text="Mags"
-                        TextColor="GhostWhite"
-                        FontSize="20"
+                        x:Name="ExteriorTitle"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"/>
+                    <Button
+                        x:Name="ExteriorOneButton"/>
                 </Grid>
             </Frame>
-            
-            </RelativeLayout>
+        </RelativeLayout>
     </ContentView.Content>
 </ContentView>
